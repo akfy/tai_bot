@@ -119,7 +119,7 @@ def main():
     logger = logging.getLogger(__name__)
 
     # Токен вашего бота
-    token = '7570397611:AAGg8ohFxSSEEIzw5TKrlXh1ZKO4mYnd-xE'  # Замените на ваш токен
+    token = ''  # Замените на ваш токен
 
     # Создаем приложение (Application)
     application = Application.builder().token(token).build()

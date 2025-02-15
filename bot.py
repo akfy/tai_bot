@@ -3,7 +3,13 @@ from telegram import Update
 from telegram.ext import Application, CommandHandler, MessageHandler, filters
 import requests
 from bs4 import BeautifulSoup
+from dotenv import load_dotenv
+import os
+# Загружаем переменные окружения из .env
+load_dotenv()
 
+# Получаем токен из переменной окружения
+TOKEN = os.getenv("TOKEN")
 # URL-адрес для курсов валют Сбербанка
 URL = "https://ru.myfin.by/bank/sberbank/currency"
 
@@ -118,11 +124,10 @@ def main():
     logging.basicConfig(format="%(asctime)s - %(name)s - %(levelname)s - %(message)s", level=logging.INFO)
     logger = logging.getLogger(__name__)
 
-    # Токен вашего бота
-    token = ''  # Замените на ваш токен
+    
 
     # Создаем приложение (Application)
-    application = Application.builder().token(token).build()
+    application = Application.builder().token(TOKEN).build()
 
     # Добавляем обработчики команд и нажатий на кнопки
     application.add_handler(CommandHandler("start", start))
